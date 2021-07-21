@@ -1,22 +1,35 @@
-#ifndef KAREN_HPP
-# define KAREN_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/21 21:23:28 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/21 21:23:28 by hyunyoo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <iostream>
+#ifndef KAREN_HPP
+#define KAREN_HPP
+
+#include <iostream>
 
 class Karen
 {
 private:
-	typedef void	(Karen::* f)();
-	struct	commentType_
+	typedef void (Karen::*f)();
+	struct commentType_
 	{
-		std::string const	name;
-		f const				func;
+		std::string const name;
+		f const func;
 	};
-	static const commentType_	commentTypeList_[];
+	static const commentType_ commentTypeList_[];
 	void debug(void);
 	void info(void);
 	void warning(void);
 	void error(void);
+
 public:
 	Karen();
 	~Karen();
@@ -24,4 +37,12 @@ public:
 	void complainLevel(std::string level);
 };
 
+enum level
+{
+	debug,
+	info,
+	warning,
+	error,
+	notImportant
+};
 #endif
