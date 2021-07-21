@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 09:33:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/16 20:47:01 by bkwag            ###   ########.fr       */
+/*   Created: 2021/06/23 11:18:14 by bkwag             #+#    #+#             */
+/*   Updated: 2021/06/23 11:53:59 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int main()
+#include "Weapon.hpp"
+
+class HumanA
 {
-	Zombie *array = ZombieHorde(10, "zombie");
+	public:
+	HumanA(std::string name, Weapon &weapon);
+	Weapon &weapon; //외부에서 무기의 setType 호출 시 변경되도록
+	std::string name;
+	void attack();
+	void setWeapon(Weapon &weapon);
+};
 
-	for(int i=0; i < 10; i++)
-	{
-		array[i].announce();
-	}
-	delete[] array;
-	return 0;
-}
+#endif

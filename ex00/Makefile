@@ -3,33 +3,33 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
+#    By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/21 11:43:29 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/21 11:43:31 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/16 11:27:57 by bkwag             #+#    #+#              #
+#    Updated: 2021/07/19 14:14:16 by bkwag            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+SRCS			= Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
-SRCS	= 	megaphone.cpp \
+CXX				= clang++
+RM				= rm -f
+CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-CFLAG	= 	-Wall -Wextra -Werror
-RM		=	rm -rf
-OBJS	= $(SRCS:%.cpp=%.o)
+NAME			= Zombie
 
-all		:	$(NAME)
+all:			$(NAME)
 
-$(NAME)	:	$(OBJS)
-	@clang++ $(CFLAG) $(OBJS) -o $(NAME) > /dev/null
+$(NAME):		$(OBJS)
+				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-clean	:
-	@rm -rf *.o
-	@rm -rf $(OBJS)
+clean:
+				@$(RM) $(OBJS)
 
-fclean	: clean
-	@rm -rf $(NAME)
+fclean:			clean
+				@$(RM) $(NAME)
 
-re		: fclean all
+re:				fclean $(NAME)
 
-.PHONY:			all, clean, fclean, re
+.PHONY:			all clean fclean re

@@ -6,18 +6,18 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/16 11:27:57 by bkwag             #+#    #+#              #
-#    Updated: 2021/07/16 11:40:43 by marvin           ###   ########.fr        #
+#    Updated: 2021/07/16 11:40:42 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Zombie.cpp ZombieHorde.cpp main.cpp
+SRCS			= main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= ZombieHorde
+NAME			= brain
 
 all:			$(NAME)
 

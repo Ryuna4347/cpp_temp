@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 09:33:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/16 20:47:01 by bkwag            ###   ########.fr       */
+/*   Created: 2021/06/23 09:33:38 by bkwag             #+#    #+#             */
+/*   Updated: 2021/07/16 12:01:57 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main()
+#include <iostream>
+
+class Zombie
 {
-	Zombie *array = ZombieHorde(10, "zombie");
+private:
+	std::string name;
+public:
+	Zombie();
+	Zombie(std::string name);
+	~Zombie();
+	void announce();
+	void setName(std::string name);
+};
 
-	for(int i=0; i < 10; i++)
-	{
-		array[i].announce();
-	}
-	delete[] array;
-	return 0;
-}
+Zombie *ZombieHorde(int n, std::string name);
+
+#endif

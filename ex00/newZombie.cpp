@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 09:33:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/16 20:47:01 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/16 11:36:09 by bkwag             #+#    #+#             */
+/*   Updated: 2021/07/19 14:18:38 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+Zombie *newZombie(std::string name)
 {
-	Zombie *array = ZombieHorde(10, "zombie");
-
-	for(int i=0; i < 10; i++)
-	{
-		array[i].announce();
-	}
-	delete[] array;
-	return 0;
+	Zombie *zombie = new Zombie(name);
+	return zombie;
 }

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 09:33:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/16 20:47:01 by bkwag            ###   ########.fr       */
+/*   Created: 2021/06/23 11:17:52 by bkwag             #+#    #+#             */
+/*   Updated: 2021/06/23 11:39:19 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-	Zombie *array = ZombieHorde(10, "zombie");
-
-	for(int i=0; i < 10; i++)
-	{
-		array[i].announce();
-	}
-	delete[] array;
-	return 0;
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+  }
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
+  }
 }

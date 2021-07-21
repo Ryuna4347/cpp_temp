@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 09:33:32 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/16 20:47:01 by bkwag            ###   ########.fr       */
+/*   Created: 2021/06/23 11:18:16 by bkwag             #+#    #+#             */
+/*   Updated: 2021/06/23 11:52:09 by bkwag            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main()
+Weapon::Weapon()
 {
-	Zombie *array = ZombieHorde(10, "zombie");
+}
 
-	for(int i=0; i < 10; i++)
-	{
-		array[i].announce();
-	}
-	delete[] array;
-	return 0;
+Weapon::Weapon(std::string type)
+{
+	this->type = type;
+}
+
+std::string const &Weapon::getType() const
+{
+	return this->type;
+}
+
+void Weapon::setType(std::string type)
+{
+	this->type = type;
 }

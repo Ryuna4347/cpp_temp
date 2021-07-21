@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/16 11:27:57 by bkwag             #+#    #+#              #
-#    Updated: 2021/07/16 11:40:43 by marvin           ###   ########.fr        #
+#    Created: 2021/07/15 15:48:44 by bkwag             #+#    #+#              #
+#    Updated: 2021/07/15 15:57:09 by bkwag            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Zombie.cpp ZombieHorde.cpp main.cpp
+SRCS			= Karen.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= ZombieHorde
+NAME			= karen
 
 all:			$(NAME)
 
