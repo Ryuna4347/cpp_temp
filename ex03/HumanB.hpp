@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 21:19:08 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/21 21:19:09 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/21 21:44:39 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class HumanB
 {
-	public:
+private:
 	Weapon *weapon;
 	std::string name;
-
+public:
 	HumanB(std::string name);
 	HumanB(std::string name, Weapon *weapon);
-	void setWeapon(Weapon &weapon);
+	void setWeapon(Weapon *weapon);
 	void attack();
 };
 

@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 21:18:51 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/21 21:18:52 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/21 21:39:35 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 
 class HumanA
 {
-	public:
-	HumanA(std::string name, Weapon &weapon);
-	Weapon &weapon; //외부에서 무기의 setType 호출 시 변경되도록
+private:
+	Weapon *weapon; //외부에서 무기의 setType 호출 시 변경되도록
 	std::string name;
+public:
+	HumanA(std::string name, Weapon *weapon);
 	void attack();
-	void setWeapon(Weapon &weapon);
+	void setWeapon(Weapon *weapon);
 };
 
 #endif

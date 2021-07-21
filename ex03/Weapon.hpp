@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 21:20:06 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/21 21:20:07 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/21 21:48:49 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 class Weapon
 {
+private:
+	std::string type;
 public:
 	Weapon();
+	~Weapon();
 	Weapon(std::string type);
-	std::string type;
-	std::string const &getType() const;
+	const std::string &getType() const;
 	void setType(std::string type);
 };
 

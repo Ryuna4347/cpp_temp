@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 09:40:44 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/21 21:20:15 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/21 21:25:01 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/21 22:07:59 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ std::string ft_replace(std::string str, std::string prev, std::string next)
 
 	while (true)
 	{
-		if((i = str.find(prev, i)) == -1)
+		if((i = str.find(prev, 0)) == -1)
 		{
 			new_line += str.substr(0);
 			return new_line;
