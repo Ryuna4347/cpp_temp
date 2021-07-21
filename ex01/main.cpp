@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 11:43:54 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/21 11:43:56 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/21 12:13:38 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(void)
 			std::cout << "Bye." << std::endl;
 			exit(0);
 		}
+		std::cout << "* Enter your command [ADD, SEARCH, EXIT]:" << std::endl;
 	}
 	return 0;
 }
