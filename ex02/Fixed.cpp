@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 13:44:57 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/23 13:44:58 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/23 14:27:08 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,25 @@ std::ostream &operator<<(std::ostream &out, Fixed const &output)
 	return out;
 }
 
-Fixed &Fixed::operator+(Fixed value)
+Fixed &Fixed::operator+(const Fixed &value)
 {
 	this->value += value.value;
 	return *this;
 }
 
-Fixed &Fixed::operator-(Fixed value)
+Fixed &Fixed::operator-(const Fixed &value)
 {
 	this->value -= value.value;
 	return *this;
 }
 
-Fixed &Fixed::operator*(Fixed value)
+Fixed &Fixed::operator*(const Fixed &value)
 {
 	this->value *= (value.value / (1 << value.bit));
 	return *this;
 }
 
-Fixed &Fixed::operator/(Fixed value)
+Fixed &Fixed::operator/(const Fixed &value)
 {
 	if (value.value == 0)
 	{
@@ -77,32 +77,32 @@ Fixed &Fixed::operator/(Fixed value)
 	return *this;
 }
 
-bool Fixed::operator>(Fixed value)
+bool Fixed::operator>(const Fixed &value)
 {
 	return (this->value > value.value);
 }
 
-bool Fixed::operator<(Fixed value)
+bool Fixed::operator<(const Fixed &value)
 {
 	return (this->value < value.value);
 }
 
-bool Fixed::operator<=(Fixed value)
+bool Fixed::operator<=(const Fixed &value)
 {
 	return (this->value <= value.value);
 }
 
-bool Fixed::operator>=(Fixed value)
+bool Fixed::operator>=(const Fixed &value)
 {
 	return (this->value >= value.value);
 }
 
-bool Fixed::operator==(Fixed value)
+bool Fixed::operator==(const Fixed &value)
 {
 	return (this->value == value.value);
 }
 
-bool Fixed::operator!=(Fixed value)
+bool Fixed::operator!=(const Fixed &value)
 {
 	return (this->value != value.value);
 }
@@ -133,20 +133,38 @@ Fixed Fixed::operator--(int)
 	return temp;
 }
 
-float Fixed::max(Fixed a, Fixed b)
+Fixed Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a < b)
-		return b.toFloat();
+		return b;
 	else
-		return a.toFloat();
+		return a;
 }
 
-float Fixed::min(Fixed a, Fixed b)
+Fixed Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a > b)
-		return b.toFloat();
+		return b;
 	else
-		return a.toFloat();
+		return a;
+}
+
+Fixed const Fixed::max(const Fixed &a, const Fixed &b)
+{
+	Fixed temp(a);
+	if (temp < b)
+		return b;
+	else
+		return a;
+}
+
+Fixed const Fixed::min(const Fixed &a, const Fixed &b)
+{
+	Fixed temp(a);
+	if (temp > b)
+		return b;
+	else
+		return a;
 }
 
 float Fixed::toFloat(void) const
