@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
+#    By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/21 21:18:38 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/21 21:18:38 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/16 11:03:44 by bkwag             #+#    #+#              #
+#    Updated: 2021/07/16 11:04:51 by bkwag            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp
+SRCS			= Fixed.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= brain
+NAME			= Fixed
 
 all:			$(NAME)
 

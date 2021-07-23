@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/21 21:17:17 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/21 21:17:17 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/23 13:44:49 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/23 13:44:50 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Zombie.cpp ZombieHorde.cpp main.cpp
+SRCS			= Fixed.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= ZombieHorde
+NAME			= Fixed
 
 all:			$(NAME)
 
