@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:38 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:40 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/24 18:13:53 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/24 18:13:53 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
+
+#include <iostream>
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-int main()
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ScavTrap scav("scav");
+private:
+	std::string name;
+public:
+	DiamondTrap();
+	DiamondTrap(std::string name);
+	~DiamondTrap();
+	DiamondTrap(const DiamondTrap& copy);
+	DiamondTrap& operator=(const DiamondTrap& copy);
+	void attack(const std::string & target);
+	void whoAmI();
+};
 
-	scav.guardGate();
-	scav.attack("bkwag");
-	scav.beRepaired(10);
-	scav.takeDamage(10);
-	return 0;
-}
+#endif

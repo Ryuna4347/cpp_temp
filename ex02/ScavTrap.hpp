@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:38 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:40 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/24 18:12:47 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/24 18:12:47 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class ScavTrap: virtual public ClapTrap
 {
-	ScavTrap scav("scav");
+public:
+	ScavTrap();
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap(const ScavTrap& copy);
+	ScavTrap& operator=(const ScavTrap& copy);
+	void guardGate();
+};
 
-	scav.guardGate();
-	scav.attack("bkwag");
-	scav.beRepaired(10);
-	scav.takeDamage(10);
-	return 0;
-}
+#endif

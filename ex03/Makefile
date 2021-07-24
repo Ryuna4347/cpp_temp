@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/24 18:11:49 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/24 18:11:49 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/24 18:14:17 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/24 18:14:17 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS			= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I. -Wshadow -Wno-shadow
 
-NAME			= ScavTrap
+NAME			= DiamondTrap
 
 all:			$(NAME)
 

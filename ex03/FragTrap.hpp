@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:38 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:40 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/24 18:14:09 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/24 18:14:10 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class FragTrap: virtual public ClapTrap
 {
-	ScavTrap scav("scav");
+public:
+	FragTrap();
+	FragTrap(std::string name);
+	~FragTrap();
+	FragTrap(const FragTrap& copy);
+	FragTrap& operator=(const FragTrap& copy);
+	void highFivesGuys(void);
+};
 
-	scav.guardGate();
-	scav.attack("bkwag");
-	scav.beRepaired(10);
-	scav.takeDamage(10);
-	return 0;
-}
+#endif

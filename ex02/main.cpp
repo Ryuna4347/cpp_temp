@@ -5,27 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/23 13:45:10 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/23 14:28:24 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/24 18:12:32 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/24 18:12:33 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "FragTrap.hpp"
 
-#include <iostream>
-int		main( void )
+int main()
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) / Fixed( 0 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	FragTrap frag("fragtrap");
 
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max( a, b ) << std::endl;
-
+	frag.highFivesGuys();
+	frag.attack("bkwag");
+	frag.beRepaired(10);
+	frag.takeDamage(10);
 	return 0;
 }

@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:38 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:40 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/24 18:10:25 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/24 18:10:26 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	ScavTrap scav("scav");
+	DiamondTrap diamondtrap("diamond");
 
-	scav.guardGate();
-	scav.attack("bkwag");
-	scav.beRepaired(10);
-	scav.takeDamage(10);
+	diamondtrap.highFivesGuys();
+	diamondtrap.guardGate();
+	diamondtrap.attack("hyunyoo");
+	diamondtrap.beRepaired(10);
+	diamondtrap.takeDamage(10);
+	diamondtrap.whoAmI();
 	return 0;
 }

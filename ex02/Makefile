@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+         #
+#    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/16 11:03:44 by bkwag             #+#    #+#              #
-#    Updated: 2021/07/16 11:04:51 by bkwag            ###   ########.fr        #
+#    Created: 2021/07/24 18:12:38 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/24 18:12:38 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Fixed.cpp main.cpp
+SRCS			= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= Fixed
+NAME			= FragTrap
 
 all:			$(NAME)
 
