@@ -5,34 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 13:28:15 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 13:28:15 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 18:16:55 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 18:16:55 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
 
-int main()
+int main(void)
 {
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	j->makeSound(); //will output the cat sound!
-	i->makeSound();
-	meta->makeSound();
+	Bureaucrat francis("Francis", 100);
+	std::cout << francis << std::endl;
+	francis.increaseGrade();
+	std::cout << francis << std::endl;
+	francis.decreaseGrade();
+	std::cout << francis << std::endl;
 
-	const WrongAnimal *k = new WrongCat(); //이 경우 오버라이드가 안되고 WrongAnimal의 울음이 발생한다.
-	k->makeSound();
-	const WrongCat *q = new WrongCat(); //이 경우에는 WrongCat의 울음이 나온다.
-	q->makeSound();
-	delete meta;
-	delete i;
-	delete j;
-	delete k;
-	delete q;
-	return 0;
+	try
+	{
+		Bureaucrat jack("Jack", 0);
+		std::cout << jack << std::endl;
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat jack("Jack", 1000);
+		std::cout << jack << std::endl;
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat jack("Jack", 1);
+		std::cout << jack << std::endl;
+		jack.increaseGrade();
+		std::cout << jack << std::endl;
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	try
+	{
+		Bureaucrat jack("Jack", 150);
+		std::cout << jack << std::endl;
+		jack.decreaseGrade();
+		std::cout << jack << std::endl;
+	}
+	catch (std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	return (0);
 }

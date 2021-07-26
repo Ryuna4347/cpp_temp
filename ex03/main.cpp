@@ -5,36 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 13:34:15 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 13:34:15 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 18:22:29 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 18:22:30 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "MateriaSource.hpp"
-#include "Character.hpp"
+#include <iostream>
+#include <string>
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main()
-{
-	IMateriaSource *src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+void    _test_intern(std::string const& name, std::string const& target) {
+    Intern      someRandomIntern;
+    Form*       rrf;
+    Bureaucrat  bure("Akira", 1);
 
-	ICharacter *me = new Character("me");
+    rrf = someRandomIntern.makeForm(name, target);
 
-	AMateria *tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+    if (rrf) {
+        std::cout << bure;
+        bure.signForm(*rrf);
+        std::cout << *rrf <<std::endl;
+        bure.executeForm(*rrf);
+        std::cout << std::endl;
+    }
+}
 
-	ICharacter *bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	//me->use(2, *bob); //count가 넘어서 실행 안됨
-	delete bob;
-	delete me;
-	delete src;
-	return 0;
+int main() {
+    std::cout << "<SHURUBBERY TESTS>" << std::endl;
+    _test_intern("shrubbery creation", "Bender");
+    _test_intern("robotomy request", "Bender");
+    _test_intern("presidential pardon", "Bender");
+    _test_intern("nothing form", "Bender");
+    return 0;
 }

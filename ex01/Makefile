@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/26 13:29:45 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/26 13:29:46 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/26 18:18:24 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/26 18:18:25 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Cat.cpp Dog.cpp Animal.cpp main.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+SRCS			= Bureaucrat.cpp Form.cpp main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= Brain
+NAME			= maggot
 
 all:			$(NAME)
 

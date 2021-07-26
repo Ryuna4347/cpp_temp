@@ -5,43 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 13:29:37 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 13:29:37 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 18:18:16 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 18:18:16 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "Bureaucrat.hpp"
 
-int main()
-{
-	{
-		Animal *Animals[10];
-		for (int i = 0; i < 10; ++i)
-		{
-			if (i % 2 == 0)
-				Animals[i] = new Dog();
-			else
-				Animals[i] = new Cat();
-		}
-		std::cout << "-----------------------------" << std::endl;
-		Animal *copy = new Cat(*(Cat *)Animals[5]);
-		for (int i = 0; i < 100; ++i)
-		{		   // 왼쪽이 카피
-			std::cout << ((Cat *)Animals[5])->getBrain()->getIdea(i) << std::endl; // 오른쪽이 원본
-		}
-		std::cout << "-----------------------------\n"
-				  << std::endl;
-		
-		for (int i = 0; i < 10; ++i)
-		{
-			delete Animals[i];
-		}
-		for (int i = 0; i < 100; ++i)
-		{		   // 왼쪽이 카피
-			std::cout << ((Cat *)copy)->getBrain()->getIdea(i) << std::endl;
-		}
-		system("leaks Brain");
-	}
+void    _test(std::string const& name_bure, int grade,
+        std::string const& name_form, int sign_grade, int exec_grade) {
+    try {
+        std::cout << name_bure << "'s test" << std::endl;
+
+        Bureaucrat  bure(name_bure, grade);
+        Form        form(name_form, sign_grade, exec_grade);
+        std::cout << bure;
+        bure.signForm(form);
+        std::cout << form;
+        std::cout << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << std::endl;
+    }
+}
+
+int main() {
+    std::cout << "<TEST FORM>" << std::endl;
+    _test("Akira", 10, "test1", 100, 100);
+    _test("Tetsuo", 100, "test1", 10, 10);
+    _test("Kiyoko", 100, "test1", -10, 10);
+    _test("Takashi", 100, "test1", 10, -10);
+    _test("Masaru", 100, "test1", 10, 999);
+    _test("Taisa", 100, "test1", 999, 10);
+    _test("A", 999, "test1", 999, 999);
+    _test("B", -999, "test1", 999, 999);
+    _test("C", 100, "test1", -999, -999);
+    return 0;
 }
