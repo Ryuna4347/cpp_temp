@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:33 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:33 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:29:16 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:29:17 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
-class ClapTrap
+class Brain
 {
-protected:
-	std::string name;
-	unsigned int HitPoint;
-	unsigned int EnergyPoint;
-	unsigned int AttackDamage;
+private:
+	std::string ideas[100];
+
 public:
-	ClapTrap();
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap(const ClapTrap& copy);
-	ClapTrap& operator=(const ClapTrap& copy);
-	virtual void attack(const std::string &target);
-	virtual void takeDamage(unsigned int amount);
-	virtual void beRepaired(unsigned int amount);
+	Brain();
+	virtual ~Brain();
+	Brain(const Brain &copy);
+	Brain &operator=(const Brain &copy);
+	std::string getIdea(int idx);
 };
 
 #endif

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:13:53 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:13:53 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:31:15 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:31:16 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class WrongAnimal
 {
-private:
-	std::string name;
+protected:
+	std::string type;
+
 public:
-	DiamondTrap();
-	DiamondTrap(std::string name);
-	~DiamondTrap();
-	DiamondTrap(const DiamondTrap& copy);
-	DiamondTrap& operator=(const DiamondTrap& copy);
-	void attack(const std::string & target);
-	void whoAmI();
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	WrongAnimal &operator=(const WrongAnimal &copy);
+	std::string getType() const;
+	virtual void makeSound() const;
 };
 
 #endif

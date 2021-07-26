@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:14:27 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:14:28 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:33:25 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:33:25 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-#include <iostream>
-#include "ClapTrap.hpp"
+# include "AMateria.hpp"
+# include <iostream>
 
-class ScavTrap : virtual public ClapTrap
+class Cure: public AMateria
 {
 public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	~ScavTrap();
-	ScavTrap(const ScavTrap &copy);
-	ScavTrap &operator=(const ScavTrap &copy);
-	virtual void guardGate();
-	virtual void attack(const std::string &target);
+	Cure();
+	virtual ~Cure();
+	Cure(Cure const &cure);
+	Cure &operator=(Cure const &cure);
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
 };
 
 #endif

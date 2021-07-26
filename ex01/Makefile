@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/24 18:11:49 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/24 18:11:49 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/26 13:29:45 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/26 13:29:46 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS			= Cat.cpp Dog.cpp Animal.cpp main.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= ScavTrap
+NAME			= Brain
 
 all:			$(NAME)
 

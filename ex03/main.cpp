@@ -5,22 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:10:25 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:10:26 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:34:15 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:34:15 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
 
 int main()
 {
-	DiamondTrap diamondtrap("diamond");
+	IMateriaSource *src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	diamondtrap.highFivesGuys();
-	diamondtrap.guardGate();
-	diamondtrap.attack("hyunyoo");
-	diamondtrap.beRepaired(10);
-	diamondtrap.takeDamage(10);
-	diamondtrap.whoAmI();
+	ICharacter *me = new Character("me");
+
+	AMateria *tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter *bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	//me->use(2, *bob); //count가 넘어서 실행 안됨
+	delete bob;
+	delete me;
+	delete src;
 	return 0;
 }

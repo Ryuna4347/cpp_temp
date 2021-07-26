@@ -5,20 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:12:32 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:12:33 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:30:58 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:30:59 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include <iostream>
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
-	FragTrap frag("fragtrap");
+	{
+		Animal *Animals[10];
+		//Animal *animal = new Animal(); // 추상 클래스는 new 사용이 불가능하다.
+		for (int i = 0; i < 10; ++i)
+		{
+			if (i % 2 == 0)
+				Animals[i] = new Dog();
+			else
+				Animals[i] = new Cat();
+		}
 
-	frag.highFivesGuys();
-	frag.attack("bkwag");
-	frag.beRepaired(10);
-	frag.takeDamage(10);
-	return 0;
+		std::cout << "-----------------------------\n"
+				  << std::endl;
+
+		for (int i = 0; i < 10; ++i)
+			Animals[i]->makeSound();
+
+		std::cout << "\n-----------------------------\n"
+				  << std::endl;
+
+		for (int i = 0; i < 10; ++i)
+		{
+			delete Animals[i];
+		}
+	}
+	system("leaks abstract");
 }

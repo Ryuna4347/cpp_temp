@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:09 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:09 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:30:42 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:30:42 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ClapTrap
+class Cat : public Animal
 {
 private:
-	std::string name;
-	unsigned int HitPoint;
-	unsigned int EnergyPoint;
-	unsigned int AttackDamage;
+	Brain *brain;
 
 public:
-	ClapTrap();
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap(const ClapTrap &copy);
-	ClapTrap &operator=(const ClapTrap &copy);
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	Cat();
+	~Cat();
+	Cat(const Cat &copy);
+	Cat &operator=(const Cat &copy);
+	std::string getType() const;
+	virtual void makeSound() const;
+	Brain *getBrain() const;
 };
 
 #endif

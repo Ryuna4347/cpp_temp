@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:12:16 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:12:17 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:30:53 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:30:54 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ClapTrap
+class Dog : public Animal
 {
-protected:
-	std::string name;
-	unsigned int HitPoint;
-	unsigned int EnergyPoint;
-	unsigned int AttackDamage;
+private:
+	Brain *brain;
+
 public:
-	ClapTrap();
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap(const ClapTrap& copy);
-	ClapTrap& operator=(const ClapTrap& copy);
-	virtual void attack(const std::string &target);
-	virtual void takeDamage(unsigned int amount);
-	virtual void beRepaired(unsigned int amount);
+	Dog();
+	~Dog();
+	Dog(const Dog &copy);
+	Dog &operator=(const Dog &copy);
+	std::string getType() const;
+	virtual void makeSound() const;
+	Brain *getBrain() const;
 };
 
 #endif

@@ -5,19 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 18:11:14 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/24 18:11:14 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/26 13:28:15 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/26 13:28:15 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
-	ClapTrap clap("Clap");
+	const Animal *meta = new Animal();
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	j->makeSound(); //will output the cat sound!
+	i->makeSound();
+	meta->makeSound();
 
-	clap.attack("Enemy");
-	clap.beRepaired(10);
-	clap.takeDamage(10);
+	const WrongAnimal *k = new WrongCat(); //이 경우 오버라이드가 안되고 WrongAnimal의 울음이 발생한다.
+	k->makeSound();
+	const WrongCat *q = new WrongCat(); //이 경우에는 WrongCat의 울음이 나온다.
+	q->makeSound();
+	delete meta;
+	delete i;
+	delete j;
+	delete k;
+	delete q;
 	return 0;
 }
