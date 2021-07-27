@@ -149,7 +149,7 @@ void Scalar::FromFloat()
 	ss << this->str;
 	ss >> this->fvalue;
 
-	if (this->fvalue >= INT_MAX || this->fvalue <= INT_MIN)
+	if (this->fvalue >= std::numeric_limits<float>::max() || this->fvalue <= std::numeric_limits<float>::min())
 	{
 		std::cout << "the conversion is impossible" << std::endl;
 		this->impossible_flag = true;
@@ -172,7 +172,7 @@ void Scalar::FromDouble()
 	ss << this->str;
 	ss >> this->dvalue;
 
-	if (this->dvalue >= INT_MAX || this->dvalue <= INT_MIN)
+	if (this->dvalue >= std::numeric_limits<double>::max() || this->dvalue <= std::numeric_limits<double>::min())
 	{
 		std::cout << "the conversion is impossible" << std::endl;
 		this->impossible_flag = true;
