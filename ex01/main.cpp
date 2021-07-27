@@ -5,41 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 18:18:16 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 22:05:52 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/04 10:23:54 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/27 15:23:23 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Bureaucrat.hpp"
+#include "Data.hpp"
 
-void    _test(std::string const& name_bure, int grade,
-        std::string const& name_form, int sign_grade, int exec_grade) {
-    try {
-        std::cout << name_bure << "'s test" << std::endl;
+int main()
+{
+	Data data("a", "b", 1);
 
-        Bureaucrat  bure(name_bure, grade);
-        Form        form(name_form, sign_grade, exec_grade);
-        std::cout << bure << std::endl;
-        bure.signForm(form);
-        std::cout << form << std::endl;
-    }
-    catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
-        std::cout << std::endl;
-    }
-}
+	uintptr_t iPtr = serialize(&data);
+	Data *dPtr = deserialize(iPtr);
 
-int main() {
-    std::cout << "<TEST FORM>" << std::endl;
-    _test("Kirito", 10, "test1", 100, 100);
-    _test("Asuna", 100, "test1", 10, 10);
-    _test("Sinnosuke", 100, "test1", -10, 10);
-    _test("Sinichi", 100, "test1", 10, -10);
-    _test("Edogawa", 100, "test1", 10, 999);
-    _test("Taichi", 100, "test1", 999, 10);
-    _test("Tohru", 999, "test1", 999, 999);
-    _test("Kanna", -999, "test1", 999, 999);
-    _test("Saitama", 100, "test1", -999, -999);
-    return 0;
+	std::cout
+		<< "a : " << data.getStr1() << std::endl
+		<< "b : " << data.getStr2() << std::endl
+		<< "1 : "
+		<< data.getNum() << std::endl;
+
+	std::cout
+		<< "a : "
+		<< dPtr->getStr1() << std::endl
+		<< "b : "
+		<< dPtr->getStr2() << std::endl
+		<< "1 : "
+		<< dPtr->getNum() << std::endl;
+
+	return (0);
 }

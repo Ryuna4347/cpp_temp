@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 18:21:33 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 18:21:33 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/04 10:24:59 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/27 15:23:03 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-#include "Form.hpp"
-#include <random>
+#include <iostream>
 
-class RobotomyRequestForm : public Form
+class Data
 {
 private:
-	std::string target;
+	std::string str1;
+	std::string str2;
+	int num;
 
 public:
-	RobotomyRequestForm();
-	RobotomyRequestForm(std::string target);
-	~RobotomyRequestForm();
-	RobotomyRequestForm(const RobotomyRequestForm &other);
-	RobotomyRequestForm &operator=(const RobotomyRequestForm &robotomy);
-	virtual bool execute(Bureaucrat const &executor) const;
+	Data();
+	Data(std::string str1, std::string str2, int num);
+	~Data();
+	Data(const Data &other);
+	Data &operator=(const Data &president);
+	std::string getStr1() const;
+	std::string getStr2() const;
+	int getNum() const;
 };
+uintptr_t serialize(Data *ptr);
+Data *deserialize(uintptr_t raw);
 
 #endif

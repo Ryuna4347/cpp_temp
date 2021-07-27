@@ -5,20 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/26 18:21:05 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/27 10:34:15 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/04 10:43:54 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/27 15:21:58 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp main.cpp
+SRCS			= main.cpp Base.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= 28B_not_28C
-TREE			= test1_shrubbery test2222_shrubbery test3333_shrubbery
+NAME			= serialization
 
 all:			$(NAME)
 
@@ -26,7 +25,7 @@ $(NAME):		$(OBJS)
 				@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-				@$(RM) $(OBJS) $(TREE)
+				@$(RM) $(OBJS)
 
 fclean:			clean
 				@$(RM) $(NAME)

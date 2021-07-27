@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/26 18:18:24 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/26 18:18:25 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/04 10:24:12 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/27 15:23:25 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= Bureaucrat.cpp Form.cpp main.cpp
+SRCS			= main.cpp Data.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= maggot
+NAME			= serialization
 
 all:			$(NAME)
 
