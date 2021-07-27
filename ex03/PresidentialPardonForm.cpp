@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 18:23:03 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 18:23:03 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/27 11:00:46 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 bool PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	if (executor.getGrade() > this->getExecuteGrade())
-		throw Form::GradeTooLowException();
+	if (!this->getSigned())
+		throw Form::NotSignedException();
+	if(this->getExecuteGrade() < executor.getGrade())
+		throw Bureaucrat::GradeTooLowException();
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 	return true;
 }

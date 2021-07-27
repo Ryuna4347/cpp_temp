@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 18:21:00 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 18:21:00 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/27 10:41:26 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void _test_shrubbery(std::string const &name_bure,
 		Bureaucrat bure(name_bure, grade);
 		ShrubberyCreationForm form(target);
 
-		form.beSigned(bure);
+		bure.signForm(form);
 		std::cout << form << std::endl;
 		form.execute(bure);
 		std::cout << std::endl;
@@ -49,7 +49,7 @@ void _test_robotomy(std::string const &name_bure,
 		Bureaucrat bure(name_bure, grade);
 		RobotomyRequestForm form(target);
 
-		form.beSigned(bure);
+		bure.signForm(form);
 		std::cout << form << std::endl;
 		form.execute(bure);
 		std::cout << std::endl;
@@ -71,7 +71,7 @@ void _test_presidential(std::string const &name_bure,
 		Bureaucrat bure(name_bure, grade);
 		PresidentialPardonForm form(target);
 
-		form.beSigned(bure);
+		bure.signForm(form);
 		std::cout << form << std::endl;
 		form.execute(bure);
 		std::cout << std::endl;
@@ -129,30 +129,32 @@ void _test_bure(std::string const &name_bure, int grade,
 
 int main()
 {
+	srand(time(NULL));
+
 	std::cout << "<SHURUBBERY TESTS>" << std::endl;
-	_test_shrubbery("Akira", 10, "test1");
-	_test_shrubbery("Tetsuo", 140, "test2");
-	_test_shrubbery("Kiyoko", 150, "test3"); // 150까지 가능. 테스트가 3개라 트리 3개 생성
-	_test_shrubbery("A", 999, "test4");
-	_test_shrubbery("B", -999, "test5");
+	_test_shrubbery("Asuna", 10, "test1");
+	_test_shrubbery("Edward", 140, "test2");
+	_test_shrubbery("Kirito", 150, "test3");
+	_test_shrubbery("Kaiba", 999, "test4");
+	_test_shrubbery("Yugi", -999, "test5");
 
 	std::cout << "<ROBOTOMY TESTS>" << std::endl;
-	_test_robotomy("Akira", 10, "test11");
-	_test_robotomy("Tetsuo", 45, "test22");
-	_test_robotomy("Kiyoko", 60, "test33");
-	_test_robotomy("A", 999, "test44");
-	_test_robotomy("B", -999, "test55");
+	_test_robotomy("Asuna", 10, "test11");
+	_test_robotomy("Edward", 45, "test22");
+	_test_robotomy("Kirito", 60, "test33");
+	_test_robotomy("Kaiba", 999, "test44");
+	_test_robotomy("Yugi", -999, "test55");
 
 	std::cout << "<PRESIDENTIAL TESTS>" << std::endl;
-	_test_presidential("Akira", 1, "test111");
-	_test_presidential("Tetsuo", 10, "test222");
-	_test_presidential("Kiyoko", 60, "test333");
-	_test_presidential("A", 999, "test444");
-	_test_presidential("B", -999, "test555");
+	_test_presidential("Asuna", 1, "test111");
+	_test_presidential("Edward", 10, "test222");
+	_test_presidential("Kirito", 60, "test333");
+	_test_presidential("Kaiba", 999, "test444");
+	_test_presidential("Yugi", -999, "test555");
 
 	std::cout << "<BUREAUCRAT TESTS>" << std::endl;
-	_test_bure("Tetsuo", 140, "test1111");
-	_test_bure("Kiyoko", 60, "test2222");
-	_test_bure("Tetsuo", 10, "test3333");
+	_test_bure("Kira", 140, "test1111");
+	_test_bure("L", 60, "test2222");
+	_test_bure("Light", 10, "test3333");
 	return 0;
 }

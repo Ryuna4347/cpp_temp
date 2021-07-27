@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 18:25:45 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/26 18:25:48 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/27 11:00:56 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ bool ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned())
 		throw Form::NotSignedException();
-	if (executor.getGrade() > this->getExecuteGrade())
-		throw Form::GradeTooLowException();
+	if (this->getExecuteGrade() < executor.getGrade())
+		throw Bureaucrat::GradeTooLowException();
 	std::string const shrubName = (this->target + "_shrubbery");	 // file name
 	std::ofstream outfile(shrubName, std::ios::out | std::ios::app); //출력
 
