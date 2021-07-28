@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 13:14:56 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/28 15:30:04 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/28 16:01:17 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,6 @@ void Scalar::PrintDouble()
 		std::cerr << e.what() << std::endl;
 	}
 }
-
 
 
 const char *Scalar::ImpossibleException::what() const throw()
