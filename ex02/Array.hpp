@@ -37,7 +37,7 @@ public:
 	{
 		if (this->arr)
 			delete[] this->arr;
-		this->arr = new T[array.size()]();
+		this->arr = new T[array.size()];
 		this->_size = array.size();
 		for (size_t i = 0; i < this->size(); i++)
 			this->arr[i] = array.arr[i];
