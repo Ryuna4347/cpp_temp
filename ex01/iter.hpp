@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 10:46:11 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/28 16:33:33 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/04 11:18:44 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/29 13:28:06 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
-#include <iostream>
+#ifndef ITER_HPP
+# define ITER_HPP
 
-class Base
-{
-public:
-	virtual ~Base(){};
-};
+# include <iostream>
 
-class A : public Base
+template <typename T>
+void iter(T *ptr, unsigned int len, void (*f)(T const &arr))
 {
-};
-class B : public Base
-{
-};
-class C : public Base
-{
-};
-
-Base *generate(void);
-void identify_from_pointer(Base *p);
-void identify_from_reference(Base &p);
-
+	for(unsigned int i=0; i<len; i++)
+	{
+		(*f)(ptr[i]);
+	}
+}
 #endif

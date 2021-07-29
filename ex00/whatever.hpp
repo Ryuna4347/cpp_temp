@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 10:24:59 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/28 16:33:33 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/04 11:18:22 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/29 13:27:12 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-#define DATA_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-#include <iostream>
+# include <iostream>
 
-class Data
+template <typename T>
+void swap(T &a, T &b)
 {
-private:
-	std::string str1;
-	std::string str2;
-	int num;
+	T temp = a;
+	a = b;
+	b = temp;
+}
 
-public:
-	Data();
-	Data(std::string str1, std::string str2, int num);
-	~Data();
-	Data(const Data &other);
-	Data &operator=(const Data &president);
-	std::string getStr1() const;
-	std::string getStr2() const;
-	int getNum() const;
-};
-uintptr_t serialize(Data *ptr);
-Data *deserialize(uintptr_t raw);
+template <typename T>
+T min(T a, T b)
+{
+	if (b > a)
+		return a;
+	return b;
+}
 
+template <typename T>
+T max(T a, T b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
 #endif

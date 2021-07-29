@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/28 16:33:57 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/28 16:33:57 by hyunyoo          ###   ########.fr        #
+#    Created: 2021/07/04 11:18:54 by hyunyoo           #+#    #+#              #
+#    Updated: 2021/07/29 13:27:51 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp Data.cpp
+SRCS			= main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= serialization
+NAME			= iter
 
 all:			$(NAME)
 
