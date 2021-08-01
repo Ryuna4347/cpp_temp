@@ -27,12 +27,14 @@ int main()
 		std::cout << "----------------" << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 		std::vector<int> arr = sp.getArr();
-		for(size_t i=0; i < arr.size(); i++)
-		{
-			std::cout<<arr[i]<<std::endl;
-		}
+		//for(size_t i=0; i < arr.size(); i++)
+		//{
+		//	std::cout<<arr[i]<<std::endl;
+		//}
+		std::cout<<arr[0]<<" "<<arr[arr.size()-1]<<std::endl;
 	}
 	catch(std::exception &e){
 		std::cout<<e.what()<<std::endl;
 	}
+	return 0;
 }

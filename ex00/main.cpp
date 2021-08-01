@@ -22,7 +22,7 @@ int main() {
 	// vector [0, 0, 0]으로 초기화
 	for (int i = 0; i < n; i++)
 		v.push_back(i);
-	// vector [0, 0, 0, 0, 1, 2]
+	// vector [0, 0, 0, 0, 1, 2]	
 	try{
 		std::cout << easyfind(v, 1) << std::endl;
 	}
@@ -43,7 +43,7 @@ int main() {
 		q.push_back(i);
 	try
 	{
-		std::cout << easyfind(q, 1) << std::endl;
+		std::cout << easyfind(q, 2) << std::endl;
 	}
 	catch(std::exception &e)
 	{
@@ -51,7 +51,7 @@ int main() {
 	}
 	try
 	{
-		std::cout << easyfind(q, -1) << std::endl;
+		std::cout << easyfind(q, 3) << std::endl;
 	}
 	catch(std::exception &e)
 	{
