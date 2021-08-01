@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 11:18:22 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/29 13:27:12 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/07 10:10:33 by bkwag             #+#    #+#             */
+/*   Updated: 2021/08/01 12:15:24 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
 # include <iostream>
+# include <string>
 
 template <typename T>
-void swap(T &a, T &b)
+int easyfind(T container, int two)
 {
-	T temp = a;
-	a = b;
-	b = temp;
+	typename T::iterator it;
+	if ((it = find(container.begin(), container.end(), two)) == container.end())
+	{
+		throw std::exception();
+	}
+	return *it;
 }
 
-template <typename T>
-T min(T a, T b)
-{
-	if (b > a)
-		return a;
-	return b;
-}
-
-template <typename T>
-T max(T a, T b)
-{
-	if (a > b)
-		return a;
-	return b;
-}
 #endif

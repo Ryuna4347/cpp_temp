@@ -5,30 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 11:18:28 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/29 13:27:12 by hyunyoo          ###   ########.fr       */
+/*   Created: 2021/07/07 10:08:43 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/08/01 17:47:49 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include <iostream>
+#include <vector>
+#include <queue>
+#include  "easyfind.hpp"
 
-int main( void ) {
+int main() {
+	int n = 3;
 
-  int a = 2;
-  int b = 3;
+	std::vector<int> v(n);
+	// vector [0, 0, 0]으로 초기화
+	for (int i = 0; i < n; i++)
+		v.push_back(i);
+	// vector [0, 0, 0, 0, 1, 2]
+	try{
+		std::cout << easyfind(v, 1) << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "cannot find" << std::endl;
+	}
+	try{
+		std::cout << easyfind(v, -1) << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "cannot find" << std::endl;
+	}
 
-  ::swap( a, b );
-  std::cout << "a = " << a << ", b = " << b << std::endl;
-  std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-  std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-
-  std::string c = "chaine1";
-  std::string d = "chaine2";
-
-  ::swap(c, d);
-  std::cout << "c = " << c << ", d = " << d << std::endl;
-  std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-  std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-
-  return 0;
+	std::deque<int> q;
+	for (int i = 0; i < n; i++)
+		q.push_back(i);
+	try
+	{
+		std::cout << easyfind(q, 1) << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "cannot find" << std::endl;
+	}
+	try
+	{
+		std::cout << easyfind(q, -1) << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "cannot find" << std::endl;
+	}
+	return 0;
 }
